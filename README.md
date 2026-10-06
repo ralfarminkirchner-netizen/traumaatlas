@@ -27,6 +27,7 @@ React 19 · TypeScript (strict) · Vite 7 · Tailwind CSS + shadcn/ui · three.j
 npm install
 npm run dev      # Dev-Server (Port via -- --port <N>)
 npm run build    # Produktionsbuild
+npm run deploy   # Build + Veröffentlichung auf GitHub Pages (gh-pages-Branch)
 ```
 
 ## Traumasensibel
