@@ -14,6 +14,10 @@ if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
 fi
 
 echo "→ Build …"
+if [ ! -x node_modules/.bin/tsc ]; then
+  echo "→ node_modules unvollständig – installiere Abhängigkeiten …"
+  npm ci --no-audit --no-fund > /dev/null
+fi
 CI=true npm run build > /dev/null
 
 TMP=$(mktemp -d /tmp/traumaatlas-pages.XXXXXX)
