@@ -4,6 +4,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+export PATH="$PWD/node_modules/.bin:$PATH"
 
 if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
   echo "Abbruch: es gibt uncommittete Änderungen. Erst committen/pushen."
