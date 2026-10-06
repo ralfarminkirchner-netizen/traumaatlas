@@ -6,7 +6,9 @@ import { inspectAttr } from 'kimi-plugin-inspect-react'
 // https://vite.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [inspectAttr(), react()],
+  // Das QA-Inspektions-Plugin ist nur lokal nötig und nicht öffentlich
+  // installierbar – im CI-Build (GitHub Pages) weglassen.
+  plugins: [process.env.CI ? null : inspectAttr(), react()].filter(Boolean) as ReturnType<typeof react>[],
   server: {
     port: 3000,
   },
